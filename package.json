@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/Prouser123/geoplanet-parser/issues"
   },
-  "homepage": "https://github.com/Prouser123/geoplanet-parser#readme"
+  "homepage": "https://github.com/Prouser123/geoplanet-parser#readme",
+  "dependencies": {
+    "event-stream": "^4.0.1"
+  }
 }
