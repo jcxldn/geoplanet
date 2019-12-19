@@ -59,3 +59,8 @@ typings/
 
 # next.js build output
 .next
+
+# Files from postinstall
+
+*.tmp
+data/
