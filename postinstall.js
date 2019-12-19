@@ -4,12 +4,17 @@ const Listr = require("listr");
 const Axios = require("axios").default;
 const { Observable } = require("rxjs");
 const bytes = require("pretty-bytes");
-const AdmZip = require("adm-zip");
-const fs = require("fs");
+const Anzip = require("anzip");
+
+const fs = require("fs-extra");
 
 const opts = require("./package.json").dist;
 
 const tasks = new Listr([
+  {
+    title: "Preparations",
+    task: async () => await fs.emptyDir("data")
+  },
   {
     title: "Download geoplanet data",
     task: () => {
@@ -57,16 +62,11 @@ const tasks = new Listr([
   },
   {
     title: "Unzip data",
-    task: () => {
-      return new Observable(observer => {
-        observer.next("Loading...");
-
-        const zip = new AdmZip(opts.tmpName);
-        zip.extractEntryTo(opts.file, "data", false, true);
-
-        observer.complete();
-      });
-    }
+    task: async () => await Anzip(opts.tmpName, { outputPath: "./data" })
+  },
+  {
+    title: "Cleanup",
+    task: async () => await fs.unlink(opts.tmpName)
   }
 ]);
 
