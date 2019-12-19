@@ -23,6 +23,11 @@
   },
   "homepage": "https://github.com/Prouser123/geoplanet-parser#readme",
   "dependencies": {
-    "event-stream": "^4.0.1"
+    "@apexearth/egrep": "^1.0.7",
+    "escape-string-regexp": "^2.0.0",
+    "event-stream": "^4.0.1",
+    "filesniffer": "^1.0.3",
+    "shelljs": "^0.8.3",
+    "simple-grep": "0.0.1"
   }
 }
