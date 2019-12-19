@@ -20,12 +20,12 @@ function lineToObject(line) {
   };
 }
 
-module.exports = (input, testString) => {
+module.exports = testString => {
   const regex = new RegExp(escapeStringRegexp(testString));
 
   let stream = egrep({
     pattern: regex,
-    files: [input],
+    files: ["./data/geoplanet_places_7.10.0.tsv"],
     recursive: true
   });
 
@@ -38,8 +38,6 @@ module.exports = (input, testString) => {
   });
 };
 
-module
-  .exports("./data/geoplanet_places_7.10.0.tsv", "Bank Underground Station")
-  .then(i => {
-    console.log(i);
-  });
+module.exports("Bank Underground Station").then(i => {
+  console.log(i);
+});
