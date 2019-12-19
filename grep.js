@@ -21,8 +21,6 @@ function lineToObject(line) {
 }
 
 module.exports = (input, testString) => {
-  const output = [];
-
   const regex = new RegExp(escapeStringRegexp(testString));
 
   let stream = egrep({
@@ -30,13 +28,18 @@ module.exports = (input, testString) => {
     files: [input],
     recursive: true
   });
-  stream.on("data", data => {
-    output.push(lineToObject(data.line));
+
+  const output = [];
+  stream.on("data", data => output.push(lineToObject(data.line)));
+
+  return new Promise((resolve, reject) => {
+    stream.on("close", () => resolve(output));
+    stream.on("error", error => reject(error));
   });
-  return output;
 };
 
-module.exports(
-  "D:/geoplanet_data_7.10.0/geoplanet_places_7.10.0.tsv",
-  "London"
-);
+module
+  .exports("./data/geoplanet_places_7.10.0.tsv", "Bank Underground Station")
+  .then(i => {
+    console.log(i);
+  });
