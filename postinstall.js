@@ -17,7 +17,7 @@ const tasks = new Listr([
         observer.next("Starting download...");
 
         const { data, headers } = await Axios({
-          url: dist.url,
+          url: opts.url,
           method: "get",
           responseType: "stream"
         });
