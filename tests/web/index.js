@@ -9,8 +9,16 @@ chai.use(chaiHttp);
 chai.should();
 
 describe("Web", () => {
-  describe("Index Response", () => {
+  describe("Index (Showdown)", () => {
     get("/", (done, res, err) => {
+      res.should.have.status(200);
+      chai.expect(res).to.be.html;
+      done();
+    });
+  });
+
+  describe("Info Response", () => {
+    get("/info", (done, res, err) => {
       res.should.have.status(200);
       chai.expect(res.body).to.be.an("object");
       chai.expect(res.body.service).to.eql("geoplanet");
