@@ -1,5 +1,6 @@
 # geoplanet
 
+[![Source Code](https://img.shields.io/badge/Source%20Code-black?logo=github)](https://github.com/Prouser123/geoplanet)
 [![npm](https://img.shields.io/npm/v/geoplanet)
 ![node](https://img.shields.io/node/v/geoplanet)](https://www.npmjs.com/package/geoplanet)
 [![Travis (.com)](https://img.shields.io/travis/com/prouser123/geoplanet)](https://travis-ci.com/Prouser123/geoplanet)
