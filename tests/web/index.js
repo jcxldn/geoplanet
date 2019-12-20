@@ -21,10 +21,11 @@ describe("Web", () => {
     });
   });
 
-  describe("CORS", () => {
+  describe("Headers [CORS + X-Powered-By]", () => {
     get("/", (done, res, err) => {
       res.should.have.status(200);
 
+      // CORS
       chai.expect(res).to.have.header("Access-Control-Allow-Origin", "*");
       chai
         .expect(res)
@@ -32,12 +33,16 @@ describe("Web", () => {
           "Access-Control-Allow-Headers",
           "Origin, X-Requested-With, Content-Type, Accept"
         );
+
+      // X-Powered-By
+      chai.expect(res).to.have.header("X-Powered-By");
       done();
     });
 
     get("/invalid", (done, res, err) => {
       res.should.have.status(404);
 
+      // CORS
       chai.expect(res).to.have.header("Access-Control-Allow-Origin", "*");
       chai
         .expect(res)
@@ -45,6 +50,9 @@ describe("Web", () => {
           "Access-Control-Allow-Headers",
           "Origin, X-Requested-With, Content-Type, Accept"
         );
+
+      // X-Powered-By
+      chai.expect(res).to.have.header("X-Powered-By");
       done();
     });
   });
