@@ -9,14 +9,30 @@ chai.use(chaiHttp);
 chai.should();
 
 describe("Web", () => {
-  describe("Index Response", () => {
+  describe("Index (Showdown)", () => {
     get("/", (done, res, err) => {
+      res.should.have.status(200);
+      chai.expect(res).to.be.html;
+      done();
+    });
+  });
+
+  describe("Info Response", () => {
+    get("/info", (done, res, err) => {
       res.should.have.status(200);
       chai.expect(res.body).to.be.an("object");
       chai.expect(res.body.service).to.eql("geoplanet");
       chai.expect(res.body.version).to.eql(app.version);
       chai.expect(res.body.db.count).to.be.a("number");
       chai.expect(res.body.db.version).to.eql(getDBVersion());
+      done();
+    });
+  });
+
+  describe("Routes", () => {
+    get("/routes", (done, res, err) => {
+      res.should.have.status(200);
+      chai.expect(res.body).to.be.an("array");
       done();
     });
   });
