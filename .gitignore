@@ -68,3 +68,6 @@ data/
 # dev test file
 
 example-dev.js
+
+# Coverage
+coverage.lcov
