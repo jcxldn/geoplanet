@@ -46,6 +46,14 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/routes", (req, res) => {
+  res.status(200).json(
+    app._router.stack // registered routes
+      .filter(r => r.route) // take out all the middleware
+      .map(r => r.route.path) // get all the paths
+  );
+});
+
 app.on("ready", () => {
   const port = process.env.PORT || 3000;
   app.listen(port);
