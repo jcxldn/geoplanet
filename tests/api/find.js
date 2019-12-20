@@ -16,7 +16,6 @@ describe("Find", () => {
           chai.expect(data[i].countryCode).to.equal("GB");
           chai.expect(data[i].name).to.include("London");
         }
-
         done();
       });
     });
@@ -32,7 +31,6 @@ describe("Find", () => {
           chai.expect(data[i].countryCode).to.equal("GB");
           chai.expect(data[i].name).to.include("London");
         }
-
         done();
       });
     });

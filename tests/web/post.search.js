@@ -6,8 +6,6 @@ const { post } = require("./common");
 chai.use(chaiHttp);
 chai.should();
 
-// TODO HEADER CHECKING
-
 describe("Web", () => {
   describe("Advanced Search (POST)", () => {
     post("/search/exact", { id: "1" }, (done, res, err) => {
