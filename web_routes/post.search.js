@@ -8,8 +8,13 @@ module.exports = app => {
     res.setHeader("X-Search-Method", "Exact");
     res.setHeader("X-Search-Type", "Advanced");
 
-    // Generate and send the response
-    res.status(200).json(await geoplanet(req.body, true));
+    try {
+      const data = JSON.parse(req.body);
+      // Generate and send the response
+      res.status(200).json(await geoplanet(data, true));
+    } catch (e) {
+      res.status(400).json({ message: "bad post body" });
+    }
   });
 
   // Advanced search (POST)
@@ -19,7 +24,12 @@ module.exports = app => {
     res.setHeader("X-Search-Method", "Contains");
     res.setHeader("X-Search-Type", "Advanced");
 
-    // Generate and send the response
-    res.status(200).json(await geoplanet(req.body, false));
+    try {
+      const data = JSON.parse(req.body);
+      // Generate and send the response
+      res.status(200).json(await geoplanet(data, false));
+    } catch (e) {
+      res.status(400).json({ message: "bad post body" });
+    }
   });
 };

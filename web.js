@@ -10,7 +10,8 @@ console.log("Starting...");
 
 const app = express();
 
-app.use(express.json());
+// Give the app.[..] the body as RAW text so that we can do our own JSON parsing / catching
+app.use(express.text({ type: "application/json" }));
 
 // Register custom middleware
 app.use((req, res, next) => {
