@@ -45,3 +45,6 @@ app.on("ready", () => {
   console.log("\ndb count: " + count);
   console.log("db version: " + getDBVersion());
 });
+
+// For testing
+module.exports = app;

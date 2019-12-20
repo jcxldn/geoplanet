@@ -5,7 +5,7 @@
   "main": "find.js",
   "scripts": {
     "postinstall": "node postinstall.js",
-    "test": "mocha --timeout 15000 --require @babel/register tests/*.js --exit",
+    "test": "mocha --timeout 15000 --require @babel/register tests/**/*.js --exit",
     "coverage:all": "npm run coverage:test && npm run coverage:report && npm run coverage:send",
     "coverage:test": "nyc npm test",
     "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov",
@@ -44,6 +44,7 @@
     "@babel/core": "^7.7.5",
     "@babel/register": "^7.7.4",
     "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "codecov": "^3.6.1",
     "mocha": "^6.2.2",
     "nixt": "^0.5.1",
