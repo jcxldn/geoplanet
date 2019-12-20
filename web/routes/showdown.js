@@ -14,21 +14,26 @@ module.exports = app => {
     const converter = new s.Converter();
     const html = converter.makeHtml(readme);
 
+    // --------------------------------
+    // Run JavaScript Syntax Highlighting
+
+    // Load the HTML into cheerio (jQuery for node)
     const $ = c.load(html);
 
-    const write = [];
-    // Run highlight.js over the code block
+    // Run highlight.js over each JS code block
     $(".js").each((i, e) => {
-      // found one!
+      // In this block...
+      // Get the original data
       const data = e.firstChild.data;
+      // Highlight it
       const highlighted = h.highlight("js", data, true).value;
-      console.log(highlighted);
+      // Overwrite the old data with the highlighted one
       $(".js")
         .eq(i)
         .html(highlighted);
     });
-    //console.log(h.highlight("js", $(".js").text(), true));
 
+    // Send the final data to the client
     res.status(200).render("index.ejs", { output: $.html() });
   });
 };
