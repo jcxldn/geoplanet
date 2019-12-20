@@ -1,8 +1,8 @@
 {
-  "name": "geoplanet-parser",
+  "name": "geoplanet",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "find.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "node postinstall.js"
@@ -15,7 +15,9 @@
     "geoplanet",
     "yahoo",
     "parser",
-    "twitter"
+    "woeid",
+    "fast",
+    "async"
   ],
   "author": "Prouser123",
   "license": "Unlicense",
