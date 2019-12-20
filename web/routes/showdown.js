@@ -3,6 +3,8 @@ const s = require("showdown");
 const c = require("cheerio");
 const h = require("highlight.js");
 
+const { getDBVersion, app: p } = require("../../api/helpers");
+
 module.exports = app => {
   app.set("views", "web/views");
 
@@ -14,11 +16,21 @@ module.exports = app => {
     const converter = new s.Converter();
     const html = converter.makeHtml(readme);
 
-    // --------------------------------
-    // Run JavaScript Syntax Highlighting
-
     // Load the HTML into cheerio (jQuery for node)
     const $ = c.load(html);
+
+    // Add some extra status badges to reflect the local instance
+    $("img")
+      .last()
+      .append(
+        `<br><br><img src='https://img.shields.io/badge/instance-orange'>\n<img src='https://img.shields.io/badge/version-${
+          p.version
+        }-blue'>\n<img src='https://img.shields.io/badge/db%20version-${getDBVersion()}-blue'>`
+      );
+
+    // -----------------------------------
+    // Run JavaScript Syntax Highlighting
+    // -----------------------------------
 
     // Run highlight.js over each JS code block
     $(".js").each((i, e) => {
