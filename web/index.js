@@ -38,7 +38,7 @@ getLineCount().then(i => {
 });
 // ----------
 
-app.get("/", (req, res) => {
+app.get("/info", (req, res) => {
   res.status(200).json({
     service: "geoplanet",
     version: p.version,
