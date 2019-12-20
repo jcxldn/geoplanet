@@ -54,6 +54,6 @@
     "tmpName": "geoplanet.tmp"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   }
 }
