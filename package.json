@@ -2,10 +2,10 @@
   "name": "geoplanet",
   "version": "1.0.1",
   "description": "",
-  "main": "find.js",
+  "main": "api/find.js",
   "scripts": {
     "postinstall": "node postinstall.js",
-    "web": "node web.js",
+    "web": "node web/index.js",
     "test": "mocha --timeout 15000 --require @babel/register tests/**/*.js --exit",
     "coverage:all": "npm run coverage:test && npm run coverage:report && npm run coverage:send",
     "coverage:test": "nyc npm test",

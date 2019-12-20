@@ -1,4 +1,4 @@
-const geoplanet = require("../find");
+const geoplanet = require("../../api/find");
 
 module.exports = app => {
   // EXACT Basic Search (GET)

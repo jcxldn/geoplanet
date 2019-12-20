@@ -1,7 +1,7 @@
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 
-const { app, getDBVersion } = require("../../helpers");
+const { app, getDBVersion } = require("../../api/helpers");
 
 const { get } = require("./common");
 

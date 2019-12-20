@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { getLineCount, getDBVersion, app: p } = require("./helpers");
+const { getLineCount, getDBVersion, app: p } = require("../api/helpers");
 
 // Nice console output that we can disable during tests
 const console = require("prefix-logger")("geoplanet.web");
@@ -27,7 +27,7 @@ app.use((req, res, next) => {
   next();
 });
 
-require("./web_routes")(app);
+require("./routes")(app);
 
 // ---------- | Run before webserver start
 let count = 0;

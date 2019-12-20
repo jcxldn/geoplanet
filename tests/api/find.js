@@ -1,6 +1,6 @@
 const chai = require("chai");
 
-const find = require("../../find");
+const find = require("../../api/find");
 
 chai.should();
 describe("Find", () => {

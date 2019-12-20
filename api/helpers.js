@@ -1,7 +1,7 @@
 const fs = require("fs-extra");
 const rl = require("readline");
 
-const { dist: opts, version, name, homepage } = require("./package.json");
+const { dist: opts, version, name, homepage } = require("../package.json");
 
 const getLineCount = () => {
   let count = 0;
