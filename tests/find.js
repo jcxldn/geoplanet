@@ -21,6 +21,22 @@ describe("Find", () => {
       });
     });
 
+    it("London (contains, default)", done => {
+      find({ name: "London", countryCode: "GB" }).then(data => {
+        chai.expect(data).to.be.a("array");
+        // Contains in this example returns over 250 results.
+        chai.expect(data).to.have.lengthOf.greaterThan(250);
+
+        // test Country Code results against our filter
+        for (i = 0; i < data.length; i++) {
+          chai.expect(data[i].countryCode).to.equal("GB");
+          chai.expect(data[i].name).to.include("London");
+        }
+
+        done();
+      });
+    });
+
     it("London (exact)", done => {
       find({ name: "London", countryCode: "GB" }, true).then(data => {
         // Exact in this example contains only one result.

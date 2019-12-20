@@ -19,13 +19,15 @@ module.exports = async (filter, exact = false) => {
     let valid = true;
     // For every item obj
     Object.keys(filter).forEach(k => {
+      /* istanbul ignore else */
       if (filter[k] != undefined) {
+        // Filter option exists
         if (!i[k].includes(filter[k])) {
+          // Filter does not match, invalidate item object and exclude from filter
           valid = false;
         }
       }
     });
-    console.log(valid);
     return valid;
   });
 };
