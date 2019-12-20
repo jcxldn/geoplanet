@@ -29,6 +29,14 @@ describe("Web", () => {
     });
   });
 
+  describe("Routes", () => {
+    get("/routes", (done, res, err) => {
+      res.should.have.status(200);
+      chai.expect(res.body).to.be.an("array");
+      done();
+    });
+  });
+
   describe("Headers [CORS + X-Powered-By]", () => {
     get("/", (done, res, err) => {
       res.should.have.status(200);
