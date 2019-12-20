@@ -20,9 +20,7 @@ function lineToObject(line) {
   };
 }
 
-module.exports = testString => {
-  const regex = new RegExp(escapeStringRegexp(testString));
-
+const match = regex => {
   let stream = egrep({
     pattern: regex,
     files: ["./data/geoplanet_places_7.10.0.tsv"],
@@ -36,8 +34,23 @@ module.exports = testString => {
     stream.on("close", () => resolve(output));
     stream.on("error", error => reject(error));
   });
-};
+}
 
-module.exports("Bank Underground Station").then(i => {
-  console.log(i);
-});
+const matchContaining = string => {
+  console.log("match containing")
+  const regex = new RegExp(escapeStringRegexp(string))
+
+  return match(regex)
+}
+
+const matchExact = string => {
+  console.log("match exact")
+  const regex = new RegExp(`\\b${string}\\b`)
+
+  return match(regex)
+}
+
+module.exports = {
+  matchExact,
+  matchContaining
+}
