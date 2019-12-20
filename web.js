@@ -4,6 +4,10 @@ const { getLineCount, getDBVersion, app: p } = require("./helpers");
 
 const app = express();
 
+// Nice console output that we can disable during tests
+const console = require("prefix-logger")("geoplanet.web");
+require("colors");
+
 app.use(express.json());
 
 // Register custom middleware
@@ -41,8 +45,8 @@ app.get("/", (req, res) => {
 app.on("ready", () => {
   const port = process.env.PORT | 3000;
   app.listen(port);
-  console.log("express started on port " + port);
-  console.log("\ndb count: " + count);
+  console.log(`express started on port ${port}`.yellow);
+  console.log("db count: " + count);
   console.log("db version: " + getDBVersion());
 });
 

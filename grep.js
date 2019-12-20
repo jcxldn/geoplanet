@@ -1,6 +1,9 @@
 const egrep = require("@apexearth/egrep");
 const escapeStringRegexp = require("escape-string-regexp");
 
+const console = require("prefix-logger")("geoplanet.grep");
+const colors = require("colors/safe");
+
 function lineToObject(line) {
   const arr = line.split("\t");
 
@@ -34,23 +37,23 @@ const match = regex => {
     stream.on("close", () => resolve(output));
     stream.on("error", error => reject(error));
   });
-}
+};
 
 const matchContaining = string => {
-  console.log("match containing")
-  const regex = new RegExp(escapeStringRegexp(string))
+  console.log(colors.grey("match containing"));
+  const regex = new RegExp(escapeStringRegexp(string));
 
-  return match(regex)
-}
+  return match(regex);
+};
 
 const matchExact = string => {
-  console.log("match exact")
-  const regex = new RegExp(`\\b${string}\\b`)
+  console.log(colors.grey("match exact"));
+  const regex = new RegExp(`\\b${string}\\b`);
 
-  return match(regex)
-}
+  return match(regex);
+};
 
 module.exports = {
   matchExact,
   matchContaining
-}
+};

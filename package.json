@@ -38,6 +38,7 @@
     "fs-extra": "^8.1.0",
     "listr": "^0.14.3",
     "lodash": "^4.17.15",
+    "prefix-logger": "0.0.2",
     "pretty-bytes": "^5.3.0"
   },
   "devDependencies": {
