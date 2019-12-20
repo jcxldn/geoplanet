@@ -1,9 +1,9 @@
 # geoplanet
 
-![npm](https://img.shields.io/npm/v/geoplanet)
-![node](https://img.shields.io/node/v/geoplanet)
-![Travis (.com)](https://img.shields.io/travis/com/prouser123/geoplanet)
-![Codecov](https://img.shields.io/codecov/c/gh/prouser123/geoplanet)
+[![npm](https://img.shields.io/npm/v/geoplanet)
+![node](https://img.shields.io/node/v/geoplanet)](https://www.npmjs.com/package/geoplanet)
+[![Travis (.com)](https://img.shields.io/travis/com/prouser123/geoplanet)](https://travis-ci.com/Prouser123/geoplanet)
+[![Codecov](https://img.shields.io/codecov/c/gh/prouser123/geoplanet)](https://codecov.io/gh/prouser123/geoplanet)
 
 Parse Yahoo GeoPlanet data in NodeJS.
 
