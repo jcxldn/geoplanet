@@ -28,3 +28,19 @@ await geoplanet({ name: "London", countryCode: "GB" });
 // Find any place with the **exact** name of "London" in the UK.
 await geoplanet({ name: "London", countryCode: "GB" }, true);
 ```
+
+## Legal
+
+See `LICENSE` for full details.
+
+#### Program Code
+
+Copyright © 2019 James Cahill
+
+`Public Domain (Unlicense)`
+
+#### Yahoo! GeoPlanet™ Database
+
+Copyright © 2009 Yahoo! Inc. Some rights reserved.
+
+Licensed under `CC-3.0-US` - **All uses allowed when attributed.**
