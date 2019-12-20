@@ -5,7 +5,8 @@
   "main": "find.js",
   "scripts": {
     "postinstall": "node postinstall.js",
-    "test": "mocha --timeout 15000 --require @babel/register tests/*.js --exit",
+    "web": "node web.js",
+    "test": "mocha --timeout 15000 --require @babel/register tests/**/*.js --exit",
     "coverage:all": "npm run coverage:test && npm run coverage:report && npm run coverage:send",
     "coverage:test": "nyc npm test",
     "coverage:report": "nyc report --reporter=text-lcov > coverage.lcov",
@@ -13,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Prouser123/geoplanet-parser.git"
+    "url": "git+https://github.com/Prouser123/geoplanet.git"
   },
   "keywords": [
     "geoplanet",
@@ -26,23 +27,26 @@
   "author": "Prouser123",
   "license": "Unlicense",
   "bugs": {
-    "url": "https://github.com/Prouser123/geoplanet-parser/issues"
+    "url": "https://github.com/Prouser123/geoplanet/issues"
   },
-  "homepage": "https://github.com/Prouser123/geoplanet-parser#readme",
+  "homepage": "https://github.com/Prouser123/geoplanet",
   "dependencies": {
     "@apexearth/egrep": "^1.0.7",
     "anzip": "^0.2.0",
     "axios": "^0.19.0",
     "escape-string-regexp": "^2.0.0",
+    "express": "^4.17.1",
     "fs-extra": "^8.1.0",
     "listr": "^0.14.3",
     "lodash": "^4.17.15",
+    "prefix-logger": "0.0.2",
     "pretty-bytes": "^5.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
     "@babel/register": "^7.7.4",
     "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "codecov": "^3.6.1",
     "mocha": "^6.2.2",
     "nixt": "^0.5.1",

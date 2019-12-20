@@ -1,6 +1,6 @@
 const chai = require("chai");
 
-const find = require("../find");
+const find = require("../../find");
 
 chai.should();
 describe("Find", () => {
@@ -16,7 +16,6 @@ describe("Find", () => {
           chai.expect(data[i].countryCode).to.equal("GB");
           chai.expect(data[i].name).to.include("London");
         }
-
         done();
       });
     });
@@ -32,7 +31,6 @@ describe("Find", () => {
           chai.expect(data[i].countryCode).to.equal("GB");
           chai.expect(data[i].name).to.include("London");
         }
-
         done();
       });
     });
