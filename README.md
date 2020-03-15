@@ -36,7 +36,7 @@ See `LICENSE` for full details.
 
 #### Program Code
 
-Copyright © 2019 James Cahill
+Copyright © 2019-20 James Cahill
 
 `Public Domain (Unlicense)`
 
