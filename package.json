@@ -39,7 +39,7 @@
     "escape-string-regexp": "^4.0.0",
     "express": "^4.17.1",
     "fs-extra": "^9.0.0",
-    "highlight.js": "^9.17.1",
+    "highlight.js": "^10.0.1",
     "listr": "^0.14.3",
     "lodash": "^4.17.15",
     "prefix-logger": "0.0.2",
